@@ -8,7 +8,55 @@
   </head>
   <body>
     <div id="navbar"></div>
-    <h1>Contacto</h1>
+    <div class="main" id="contact">
+      <div class="contact-section">
+        <span class="tags top-tags">&lt;body&gt;</span>
+
+        <h1 class="title">Contacto.</h1>
+        <div class="form-container">
+          <form action="/enviar" method="POST">
+            <div class="first-row">
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Tu nombre..." />
+
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                pattern="[0-9]{10}"
+                required
+                placeholder="Tu teléfono..." />
+            </div>
+
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              placeholder="Tu correo..." />
+
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              cols="50"
+              required
+              placeholder="Escribe tu mensaje..."></textarea>
+
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <span class="tags bottom-tags"
+          >&nbsp&nbsp&nbsp&lt;/body&gt; <br />
+          &lt;/html&gt;</span
+        >
+      </div>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>
