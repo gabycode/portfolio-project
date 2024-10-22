@@ -17,20 +17,17 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Recopila los datos del formulario
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("nombre").value;
+    const telefono = document.getElementById("telefono").value;
+    const correo = document.getElementById("correo").value;
 
-    // Define los parámetros que se enviarán a EmailJS
     const templateParams = {
       name: name,
-      email: email,
-      message: message,
+      telefono: telefono,
+      correo: correo,
     };
 
-    // Envía el correo usando EmailJS
-    emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", templateParams).then(
+    emailjs.send("service_mz43gdb", "Ttemplate_d4iml9n", templateParams).then(
       function (response) {
         console.log(
           "Correo enviado con éxito!",
