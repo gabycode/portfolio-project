@@ -6,12 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-(function () {
-  emailjs.init("bwwSwF-PGCgP7YbpF");
-})();
-
-emailjs.init("bwwSwF-PGCgP7YbpF");
-
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
@@ -27,7 +21,7 @@ document
       correo: correo,
     };
 
-    emailjs.send("service_mz43gdb", "Ttemplate_d4iml9n", templateParams).then(
+    emailjs.send("service_mz43gdb", "template_d4iml9n", templateParams).then(
       function (response) {
         console.log(
           "Correo enviado con éxito!",
