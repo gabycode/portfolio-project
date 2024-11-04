@@ -14,11 +14,15 @@ document
     const name = document.getElementById("nombre").value;
     const telefono = document.getElementById("telefono").value;
     const correo = document.getElementById("correo").value;
+    const mensaje = document.getElementById("mensaje").value;
 
     const templateParams = {
-      name: name,
-      telefono: telefono,
-      correo: correo,
+      from_name: name,
+      to_name: "Gabriella",
+      from_email: correo,
+      to_email: "gabriellarosario72@gmail.com",
+      from_phone: telefono,
+      message: mensaje,
     };
 
     emailjs.send("service_mz43gdb", "template_d4iml9n", templateParams).then(
@@ -26,7 +30,8 @@ document
         console.log(
           "Correo enviado con éxito!",
           response.status,
-          response.text
+          response.text,
+          console.log(templateParams)
         );
       },
       function (error) {
