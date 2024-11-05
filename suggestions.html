@@ -17,7 +17,24 @@
         <p class="subtitle">
           ¡Déjanos tus sugerencias para nuevos proyectos personales!
         </p>
-        <div class="suggestions-box"></div>
+        <div class="suggestions-box">
+          <form id="suggestions-form">
+            <input
+              type="text"
+              id="nombre-sugerencias"
+              name="nombre-sugerencias"
+              required
+              placeholder="Tu nombre..." />
+            <textarea
+              id="mensaje"
+              name="mensaje-sugerencias"
+              rows="4"
+              cols="50"
+              required
+              placeholder="Escribe tu sugerencia..."></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div></div>
         <span class="tags bottom-tags"
           >&nbsp&nbsp&nbsp&lt;/body&gt; <br />
           &lt;/html&gt;</span
