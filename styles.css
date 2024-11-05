@@ -213,8 +213,8 @@ SKILLS
 --------------------------- */
 
 #skills.main {
-  height: 100vh;
   background-image: url(./assets/bg-skills.jpg);
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -248,7 +248,6 @@ PROJECTS
 
 #project.main {
   height: 100vh;
-  /* background-image: url(./assets/full-bg.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
@@ -305,10 +304,21 @@ PROJECTS
 SUGERENCIAS
 --------------------------- */
 
+#suggestions.main {
+  background-image: url(./assets/full-bg.png);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .suggestions-section .subtitle {
   color: #fff;
   font-family: "Poppins", sans-serif;
   margin-top: 10px;
+}
+
+.suggestions-box {
+  width: 30em;
 }
 
 /* -------------------------
@@ -346,7 +356,9 @@ CONTACT
 }
 
 .form-container form input,
-.form-container form textarea {
+.form-container form textarea,
+.suggestions-box input,
+.suggestions-box textarea {
   width: 100%;
   margin: 10px 0;
   background-color: #0e1237;
@@ -358,7 +370,8 @@ CONTACT
   border-radius: 5px;
 }
 
-.form-container form button {
+.form-container form button,
+.suggestions-box button {
   border: 1px solid var(--tertiary);
   background-color: transparent;
   color: var(--tertiary);
@@ -372,7 +385,8 @@ CONTACT
   border-radius: 5px;
 }
 
-.form-container form button:hover {
+.form-container form button:hover,
+.suggestions-box button:hover {
   cursor: pointer;
   background-color: var(--tertiary);
   color: #0d0d11;
