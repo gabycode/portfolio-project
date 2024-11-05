@@ -302,6 +302,16 @@ PROJECTS
 }
 
 /* -------------------------
+SUGERENCIAS
+--------------------------- */
+
+.suggestions-section .subtitle {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+}
+
+/* -------------------------
 CONTACT
 --------------------------- */
 
