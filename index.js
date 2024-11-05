@@ -40,8 +40,11 @@ const displaySuggestion = () => {
     suggestionDiv.classList.add("suggestion-entry");
 
     suggestionDiv.innerHTML = `
-      <strong>${suggestion.name}</strong> <br>
-      <p>${suggestion.message}</p>
+    <img src="./assets/user.jpg" class="user-img"/>
+      <div>
+        <strong>${suggestion.name}</strong> <br>
+        <p>${suggestion.message}</p>
+      </div>
     `;
 
     suggestionsBox.appendChild(suggestionDiv);
