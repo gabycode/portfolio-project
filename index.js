@@ -7,6 +7,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Contact form - EmailJS integration
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("nombre").value;
+    const telefono = document.getElementById("telefono").value;
+    const correo = document.getElementById("correo").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const templateParams = {
+      from_name: name,
+      to_name: "Gabriella",
+      from_email: correo,
+      to_email: "gabriellarosario72@gmail.com",
+      from_phone: telefono,
+      message: mensaje,
+    };
+
+    emailjs.send("service_mz43gdb", "template_d4iml9n", templateParams).then(
+      function (response) {
+        console.log(
+          "Correo enviado con éxito!",
+          response.status,
+          response.text,
+          console.log(templateParams)
+        );
+      },
+      function (error) {
+        console.log("Error al enviar el correo", error);
+      }
+    );
+  });
+
 // Suggestions box form
 
 const suggestions = [];
@@ -50,38 +85,3 @@ const displaySuggestion = () => {
     suggestionsBox.appendChild(suggestionDiv);
   });
 };
-
-// Contact form - EmailJS integration
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const name = document.getElementById("nombre").value;
-    const telefono = document.getElementById("telefono").value;
-    const correo = document.getElementById("correo").value;
-    const mensaje = document.getElementById("mensaje").value;
-
-    const templateParams = {
-      from_name: name,
-      to_name: "Gabriella",
-      from_email: correo,
-      to_email: "gabriellarosario72@gmail.com",
-      from_phone: telefono,
-      message: mensaje,
-    };
-
-    emailjs.send("service_mz43gdb", "template_d4iml9n", templateParams).then(
-      function (response) {
-        console.log(
-          "Correo enviado con éxito!",
-          response.status,
-          response.text,
-          console.log(templateParams)
-        );
-      },
-      function (error) {
-        console.log("Error al enviar el correo", error);
-      }
-    );
-  });
