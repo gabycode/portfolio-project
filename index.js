@@ -35,9 +35,12 @@ document
           response.text,
           console.log(templateParams)
         );
+        alert("¡Mensaje enviado con éxito!");
+        event.target.reset();
       },
       function (error) {
         console.log("Error al enviar el correo", error);
+        alert("Error al enviar correo, intenta de nuevo.");
       }
     );
   });
