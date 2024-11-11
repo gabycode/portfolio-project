@@ -265,6 +265,18 @@ PROJECTS
   background: #0e1237;
   width: 30%;
   border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.single-project:hover {
+  transform: translateY(-10px);
+}
+
+.single-project .img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .single-project img {
@@ -272,17 +284,12 @@ PROJECTS
   height: 200px;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 10px;
   border-radius: 10px;
+  transition: filter 0.3s ease;
 }
 
-.single-project {
-  padding: 20px;
-  transition: 0.3s;
-}
-
-.single-project:hover {
-  transform: translateY(-10px);
+.single-project:hover img {
+  filter: blur(4px);
 }
 
 .single-project h2,
@@ -296,8 +303,51 @@ PROJECTS
 }
 
 .single-project h2 {
+  margin-top: 10px;
   font-size: 22px;
   margin-bottom: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.single-project:hover .overlay {
+  opacity: 1;
+}
+
+.view-button {
+  border: 2px solid var(--tertiary);
+  background-color: transparent;
+  color: var(--tertiary);
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px 20px;
+  transition: 0.3s;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.view-button:hover {
+  cursor: pointer;
+  background-color: var(--tertiary);
+  color: #0d0d11;
 }
 
 /* -------------------------
@@ -355,7 +405,7 @@ SUGERENCIAS
 
 #suggestions-box .suggestion-entry {
   color: var(--accent);
-  font-family: "Open SAns", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   padding: 20px;
   background-color: #0e1237;
