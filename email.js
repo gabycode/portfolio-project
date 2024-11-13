@@ -1,3 +1,12 @@
+// Side nav bar appear in all pages
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+});
+
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
