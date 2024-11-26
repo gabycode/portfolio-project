@@ -8,6 +8,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Suggestions box form
+const url = 'https://portfolio-project-e155f-default-rtdb.firebaseio.com/comentario.json'
+
+const getAllComments = () => {fetch(url, {method: 'GET'})
+        .then(response => response.json())
+        .then(data => {
+          const suggestions = data;
+          let Objects = Object.values(suggestions);
+          const suggestionsBox = document.getElementById('suggestions-box');
+          Objects.forEach(suggestion => {
+            console.log(suggestion, 'suggestion');
+            const suggestionElement = document.createElement('div');
+            suggestionElement.classList.add('suggestion-entry');
+            suggestionElement.innerHTML = `
+              <h3>${suggestion.nombre}</h3>
+              <p>${suggestion.mensaje}</p>
+            `;
+            suggestionsBox.appendChild(suggestionElement);
+          });
+        })};
 
 const suggestions = [];
 document.getElementById("suggestions-form").addEventListener("submit", (e) => {
@@ -19,16 +38,24 @@ document.getElementById("suggestions-form").addEventListener("submit", (e) => {
   ).value;
 
   const newSuggestion = {
-    name: nameSuggestion,
-    message: messageSuggestion,
+    nombre: nameSuggestion,
+    mensaje: messageSuggestion,
   };
 
   suggestions.push(newSuggestion);
 
-  displaySuggestion();
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(newSuggestion),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  getAllComments();
   document.getElementById("suggestions-form").reset();
-  console.log(suggestions);
 });
+
 
 const displaySuggestion = () => {
   const suggestionsBox = document.getElementById("suggestions-box");
