@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gabriella | Sugerencias</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" href="./assets/logo-dark.png" />
-  </head>
-  <body>
-    <div id="navbar"></div>
-    <div class="main" id="suggestions">
-      <div class="suggestions-section">
-        <span class="tags top-tags">&lt;body&gt;</span>
 
-        <h1 class="title">Comparte tus Ideas</h1>
-        <p class="subtitle">
-          ¡Déjanos tus sugerencias para nuevos proyectos personales!
-        </p>
-        <div class="container">
-          <div class="form-container">
-            <form id="suggestions-form">
-              <input
-                type="text"
-                id="nombre-sugerencias"
-                name="nombre-sugerencias"
-                required
-                placeholder="Tu nombre..." />
-              <textarea
-                id="mensaje-sugerencias"
-                name="mensaje-sugerencias"
-                rows="4"
-                cols="50"
-                required
-                placeholder="Escribe tu sugerencia..."></textarea>
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
-          <div id="suggestions-box">
-          </div>
-        <span class="tags bottom-tags"
-          >&nbsp&nbsp&nbsp&lt;/body&gt; <br />
-          &lt;/html&gt;</span
-        >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriella | Sugerencias</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./assets/logo-dark.png" />
+</head>
+
+<body>
+  <div id="navbar"></div>
+  <div class="main" id="suggestions">
+    <div class="suggestions-section">
+      <span class="tags top-tags">&lt;body&gt;</span>
+
+      <h1 class="title">Comparte tus Ideas</h1>
+      <p class="subtitle">
+        ¡Déjanos tus sugerencias para nuevos proyectos personales!
+      </p>
+      <div class="container">
+        <div class="form-container">
+          <form id="suggestions-form">
+            <input type="text" id="nombre-sugerencias" name="nombre-sugerencias" required placeholder="Tu nombre..." />
+            <textarea id="mensaje-sugerencias" name="mensaje-sugerencias" rows="4" cols="50" required
+              placeholder="Escribe tu sugerencia..."></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+        <div id="suggestions-box">
+        </div>
+        <span class="tags bottom-tags">&nbsp&nbsp&nbsp&lt;/body&gt; <br />
+          &lt;/html&gt;</span>
       </div>
     </div>
-  </body>
-  <script src="index.js"></script>
+<script src="index.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBUkewqmDaRshS2tXjFa41ACn1jvR_BacU",
+        authDomain: "portfolio-project-e155f.firebaseapp.com",
+        projectId: "portfolio-project-e155f",
+        storageBucket: "portfolio-project-e155f.firebasestorage.app",
+        messagingSenderId: "56106648870",
+        appId: "1:56106648870:web:0a1fed2c36841718022de7"
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      const url = 'https://portfolio-project-e155f-default-rtdb.firebaseio.com/comentario.json'
+
+      
+        getAllComments();
+         
+
+
+    </script>
+</body>
+
 </html>
