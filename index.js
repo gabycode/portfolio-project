@@ -8,25 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Suggestions box form
-const url = 'https://portfolio-project-e155f-default-rtdb.firebaseio.com/comentario.json'
+const url =
+  "https://portfolio-project-e155f-default-rtdb.firebaseio.com/comentario.json";
 
-const getAllComments = () => {fetch(url, {method: 'GET'})
-        .then(response => response.json())
-        .then(data => {
-          const suggestions = data;
-          let Objects = Object.values(suggestions);
-          const suggestionsBox = document.getElementById('suggestions-box');
-          Objects.forEach(suggestion => {
-            console.log(suggestion, 'suggestion');
-            const suggestionElement = document.createElement('div');
-            suggestionElement.classList.add('suggestion-entry');
-            suggestionElement.innerHTML = `
-              <h3>${suggestion.nombre}</h3>
-              <p>${suggestion.mensaje}</p>
+const getAllComments = () => {
+  fetch(url, { method: "GET" })
+    .then((response) => response.json())
+    .then((data) => {
+      const suggestions = data;
+      let Objects = Object.values(suggestions);
+      const suggestionsBox = document.getElementById("suggestions-box");
+      Objects.forEach((suggestion) => {
+        console.log(suggestion, "suggestion");
+        const suggestionElement = document.createElement("div");
+        suggestionElement.classList.add("suggestion-entry");
+        suggestionElement.innerHTML = `
+          <img src="./assets/user.jpg" class="user-img"/>
+          <div>
+            <strong>${suggestion.nombre}</strong> <br>
+            <p>${suggestion.mensaje}</p>
+          </div>
             `;
-            suggestionsBox.appendChild(suggestionElement);
-          });
-        })};
+        suggestionsBox.appendChild(suggestionElement);
+      });
+    });
+};
 
 const suggestions = [];
 document.getElementById("suggestions-form").addEventListener("submit", (e) => {
@@ -44,18 +50,16 @@ document.getElementById("suggestions-form").addEventListener("submit", (e) => {
 
   suggestions.push(newSuggestion);
 
-
   fetch(url, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(newSuggestion),
     headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+      "Content-Type": "application/json",
+    },
+  });
   getAllComments();
   document.getElementById("suggestions-form").reset();
 });
-
 
 const displaySuggestion = () => {
   const suggestionsBox = document.getElementById("suggestions-box");
