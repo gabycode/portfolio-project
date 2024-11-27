@@ -18,23 +18,27 @@ const getAllComments = () => {
       const suggestions = data;
       let Objects = Object.values(suggestions);
       const suggestionsBox = document.getElementById("suggestions-box");
+      suggestionsBox.innerHTML = "";
       Objects.forEach((suggestion) => {
-        console.log(suggestion, "suggestion");
-        const suggestionElement = document.createElement("div");
-        suggestionElement.classList.add("suggestion-entry");
-        suggestionElement.innerHTML = `
-          <img src="./assets/user.jpg" class="user-img"/>
-          <div>
-            <strong>${suggestion.nombre}</strong> <br>
-            <p>${suggestion.mensaje}</p>
-          </div>
-            `;
-        suggestionsBox.appendChild(suggestionElement);
+        addSuggestionToDOM(suggestion);
       });
     });
 };
 
-const suggestions = [];
+const addSuggestionToDOM = (suggestion) => {
+  const suggestionsBox = document.getElementById("suggestions-box");
+  const suggestionElement = document.createElement("div");
+  suggestionElement.classList.add("suggestion-entry");
+  suggestionElement.innerHTML = `
+    <img src="./assets/user.jpg" class="user-img"/>
+    <div>
+      <strong>${suggestion.nombre}</strong> <br>
+      <p>${suggestion.mensaje}</p>
+    </div>
+  `;
+  suggestionsBox.appendChild(suggestionElement);
+};
+
 document.getElementById("suggestions-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -48,36 +52,20 @@ document.getElementById("suggestions-form").addEventListener("submit", (e) => {
     mensaje: messageSuggestion,
   };
 
-  suggestions.push(newSuggestion);
-
   fetch(url, {
     method: "POST",
     body: JSON.stringify(newSuggestion),
     headers: {
       "Content-Type": "application/json",
     },
-  });
-  getAllComments();
-  document.getElementById("suggestions-form").reset();
+  })
+    .then(() => {
+      addSuggestionToDOM(newSuggestion);
+      document.getElementById("suggestions-form").reset();
+    })
+    .catch((error) => {
+      console.error("Error al enviar la sugerencia:", error);
+    });
 });
 
-const displaySuggestion = () => {
-  const suggestionsBox = document.getElementById("suggestions-box");
-
-  suggestionsBox.innerHTML = "";
-
-  suggestions.forEach((suggestion) => {
-    const suggestionDiv = document.createElement("div");
-    suggestionDiv.classList.add("suggestion-entry");
-
-    suggestionDiv.innerHTML = `
-    <img src="./assets/user.jpg" class="user-img"/>
-      <div>
-        <strong>${suggestion.name}</strong> <br>
-        <p>${suggestion.message}</p>
-      </div>
-    `;
-
-    suggestionsBox.appendChild(suggestionDiv);
-  });
-};
+getAllComments();
