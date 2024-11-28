@@ -68,4 +68,4 @@ Este es un proyecto personal, pero si tienes sugerencias o mejoras, no dudes en 
 
 Si deseas contactarme directamente, puedes hacerlo a través de:
 
-- **Correo**: gabriellarosario72@gmail.com
+- **Correo**: <gabriellarosario72@gmail.com>
